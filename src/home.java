@@ -48,7 +48,7 @@ public class home extends javax.swing.JFrame {
         jButton7.setPreferredSize(new java.awt.Dimension(160, 60));
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 15, -1, -1));
 
-        jButton8.setText("Issue Book");
+        jButton8.setText("Issue New Book");
         jButton8.setPreferredSize(new java.awt.Dimension(160, 60));
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 15, -1, -1));
 
