@@ -1,3 +1,6 @@
+import java.sql.*;
+import Project.ConnectionProvider;
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -39,6 +42,9 @@ public class newStudent extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 500));
+        setPreferredSize(new java.awt.Dimension(500, 500));
+        setSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -99,6 +105,11 @@ public class newStudent extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Close");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 338, -1, -1));
 
         pack();
@@ -110,11 +121,39 @@ public class newStudent extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String studentID=jTextField1.getText();
+        String name=jTextField2.getText();
+        String fatherName=jTextField3.getText();
+        String courseName=(String)jComboBox1.getSelectedItem();
+        String branchName=(String)jComboBox2.getSelectedItem();
+        try
+        {
+            Connection con=ConnectionProvider.getCon();
+            Statement st=con.createStatement();
+            st.executeUpdate("insert into student values('"+studentID+"','"+name+"','"+fatherName+"','"+courseName+"','"+branchName+"')");
+            JOptionPane.showMessageDialog(null,"Successfully updated");
+            setVisible(false);
+            new newStudent().setVisible(true);
+            
+        }
+        
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Student ID already exists");
+            setVisible(false);
+            new newStudent().setVisible(true);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
