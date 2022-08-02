@@ -47,6 +47,11 @@ public class home extends javax.swing.JFrame {
 
         jButton2.setText("New Book");
         jButton2.setPreferredSize(new java.awt.Dimension(160, 60));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 15, -1, -1));
 
         jButton7.setText("Statistics");
@@ -78,12 +83,17 @@ public class home extends javax.swing.JFrame {
         setVisible(false);
         new login().setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
-
+// above is for logout button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         new newStudent().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-// above is for logout button
+// above is for new student button
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new newBook().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+// above is for new book button
     
     /**
      * @param args the command line arguments
