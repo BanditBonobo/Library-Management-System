@@ -56,6 +56,11 @@ public class home extends javax.swing.JFrame {
 
         jButton7.setText("Statistics");
         jButton7.setPreferredSize(new java.awt.Dimension(160, 60));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 15, -1, -1));
 
         jButton8.setText("Issue Book");
@@ -113,6 +118,11 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         new returnBook().setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        new statistics().setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
 //above is for return book button
 
     

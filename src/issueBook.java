@@ -102,7 +102,7 @@ public class issueBook extends javax.swing.JFrame {
         String studentID=jTextField2.getText();
         String issueDate=dFormat.format(jDateChooser1.getDate());
         String dueDate=dFormat.format(jDateChooser2.getDate());
-        String returnBook="No";
+        String returnBook="NO";
         try
         {
             Connection con=ConnectionProvider.getCon();
@@ -127,7 +127,7 @@ public class issueBook extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            JOptionPane.showConfirmDialog(null,"Connection error");
+            JOptionPane.showConfirmDialog(null,"Connection Error!");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
