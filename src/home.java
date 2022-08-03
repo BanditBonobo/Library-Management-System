@@ -69,6 +69,11 @@ public class home extends javax.swing.JFrame {
 
         jButton9.setText("Return Book");
         jButton9.setPreferredSize(new java.awt.Dimension(160, 60));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(999, 15, -1, -1));
 
         jButton10.setText("Log out");
@@ -104,6 +109,12 @@ public class home extends javax.swing.JFrame {
         new issueBook().setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 //above is for issue book button
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        new returnBook().setVisible(true);
+    }//GEN-LAST:event_jButton9ActionPerformed
+//above is for return book button
+
     
     /**
      * @param args the command line arguments
