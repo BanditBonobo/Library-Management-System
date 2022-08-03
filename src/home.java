@@ -58,8 +58,13 @@ public class home extends javax.swing.JFrame {
         jButton7.setPreferredSize(new java.awt.Dimension(160, 60));
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 15, -1, -1));
 
-        jButton8.setText("Issue New Book");
+        jButton8.setText("Issue Book");
         jButton8.setPreferredSize(new java.awt.Dimension(160, 60));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 15, -1, -1));
 
         jButton9.setText("Return Book");
@@ -94,6 +99,11 @@ public class home extends javax.swing.JFrame {
         new newBook().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 // above is for new book button
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        new issueBook().setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+//above is for issue book button
     
     /**
      * @param args the command line arguments
