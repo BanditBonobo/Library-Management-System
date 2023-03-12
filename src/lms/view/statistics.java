@@ -1,3 +1,5 @@
+package lms.view;
+
 import java.sql.*;
 import Project.ConnectionProvider;
 import javax.swing.JOptionPane;

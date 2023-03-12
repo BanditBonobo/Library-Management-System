@@ -1,3 +1,4 @@
+package lms.view;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -52,7 +53,7 @@ public class home extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 15, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jButton7.setText("Statistics");
         jButton7.setPreferredSize(new java.awt.Dimension(160, 60));
@@ -61,7 +62,7 @@ public class home extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 15, -1, -1));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         jButton8.setText("Issue Book");
         jButton8.setPreferredSize(new java.awt.Dimension(160, 60));
@@ -70,7 +71,7 @@ public class home extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 15, -1, -1));
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
         jButton9.setText("Return Book");
         jButton9.setPreferredSize(new java.awt.Dimension(160, 60));
@@ -79,7 +80,7 @@ public class home extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(999, 15, -1, -1));
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
         jButton10.setText("Log out");
         jButton10.setPreferredSize(new java.awt.Dimension(160, 60));
@@ -88,7 +89,7 @@ public class home extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1241, 15, -1, -1));
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,12 +119,12 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         new returnBook().setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
-
+//above is for return book button
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         new statistics().setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
-//above is for return book button
+//above is for statistics button
 
     
     /**
