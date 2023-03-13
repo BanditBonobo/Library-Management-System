@@ -129,8 +129,9 @@ public class newStudent extends javax.swing.JFrame {
         
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null,"Invalid input, check Student ID or Parent ID");
-//            JOptionPane.showMessageDialog(this,e);            
+            JOptionPane.showMessageDialog(null,"Invalid input, check Student ID or Parent ID");            
+//            JOptionPane.showMessageDialog(this,e);  
+//above is for debugging
             setVisible(false);
             new newStudent().setVisible(true);
         }

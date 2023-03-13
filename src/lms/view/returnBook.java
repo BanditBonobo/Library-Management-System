@@ -112,13 +112,13 @@ public class returnBook extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String bookID=jTextField1.getText();
-        String studentID=jTextField2.getText();
+        String book_id=jTextField1.getText();
+        String student_id=jTextField2.getText();
         try
         {
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select *from issue where bookID='"+bookID+"' and studentID='"+studentID+"'");
+            ResultSet rs=st.executeQuery("select *from issue where book_id='"+book_id+"' and student_id='"+student_id+"'");
             if(rs.next())
             {
                 jTextField3.setText(rs.getString(3));
@@ -141,13 +141,13 @@ public class returnBook extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String bookID=jTextField1.getText();
-        String studentID=jTextField2.getText();
+        String book_id=jTextField1.getText();
+        String student_id=jTextField2.getText();
         try
         {
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
-            st.executeUpdate("update issue set returnBook='YES' where studentID='"+studentID+"' and bookID='"+bookID+"'");
+            st.executeUpdate("update issue set returnBook='YES' where student_id='"+student_id+"' and book_id='"+book_id+"'");
             JOptionPane.showMessageDialog(null, "Book successfully returned!");
             setVisible(false);
             new returnBook().setVisible(true);

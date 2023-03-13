@@ -7,7 +7,7 @@ package lms.view;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import Project.ConnectionProvider;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JFrame;
@@ -101,7 +101,7 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             String query = "SELECT * FROM `users` WHERE username=? and password=? and usertype=?";
-            con = DriverManager.getConnection("jdbc:mysql://localhost/multiuserlogin", "root", "");
+            con = ConnectionProvider.getCon();
             pst = con.prepareStatement(query);
             pst.setString(1, txtuser.getText());
             pst.setString(2, txtpass.getText());

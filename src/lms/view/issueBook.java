@@ -100,8 +100,8 @@ public class issueBook extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         SimpleDateFormat dFormat=new SimpleDateFormat("dd-MM-yyyy");
-        String bookID=jTextField1.getText();
-        String studentID=jTextField2.getText();
+        String book_id=jTextField1.getText();
+        String student_id=jTextField2.getText();
         String issueDate=dFormat.format(jDateChooser1.getDate());
         String dueDate=dFormat.format(jDateChooser2.getDate());
         String returnBook="NO";
@@ -109,27 +109,29 @@ public class issueBook extends javax.swing.JFrame {
         {
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select *from book where bookID='"+bookID+"'");
+            ResultSet rs=st.executeQuery("select *from books where book_id='"+book_id+"'");
             if(rs.next())
             {
-                ResultSet rsl=st.executeQuery("select *from student where studentID='"+studentID+"'");
+                ResultSet rsl=st.executeQuery("select *from students where student_id='"+student_id+"'");
                 if(rsl.next())
                 {
-                    st.executeUpdate("insert into issue values('"+bookID+"','"+studentID+"','"+issueDate+"','"+dueDate+"','"+returnBook+"')");
-                    JOptionPane.showConfirmDialog(null,"Book successfully issued!");
+                    st.executeUpdate("insert into issue values('"+book_id+"','"+student_id+"','"+issueDate+"','"+dueDate+"','"+returnBook+"')");
+                    JOptionPane.showMessageDialog(null,"Book successfully issued!");
                     setVisible(false);
                     new issueBook().setVisible(true);
                 }
                 else
-                    JOptionPane.showConfirmDialog(null,"incorrect studentID");
+                    JOptionPane.showMessageDialog(null,"incorrect student ID");
             }
             
             else
-                JOptionPane.showConfirmDialog(null,"incorrect BookID");
+                JOptionPane.showMessageDialog(null,"incorrect Book ID");
         }
         catch(Exception e)
         {
-            JOptionPane.showConfirmDialog(null,"Connection Error!");
+//            JOptionPane.showMessageDialog(null,"Connection Error!");
+            JOptionPane.showMessageDialog(this,e);  
+//above is for debugging
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -141,17 +141,18 @@ public class statistics extends javax.swing.JFrame {
         {
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select issue.studentID,student.name,issue.bookID,book.name,issue.issueDate,issue.dueDate from student inner join book inner join issue where book.bookID=issue.bookID and student.studentID=issue.studentID and issue.returnBook='NO'");
+            ResultSet rs=st.executeQuery("select issue.student_id,students.name,issue.book_id,books.title,issue.issueDate,issue.dueDate from students inner join books inner join issue where books.book_id=issue.book_id and students.student_id=issue.student_id and issue.returnBook='NO'");
             jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-            ResultSet rs1=st.executeQuery("select issue.studentID,student.name,issue.bookID,book.name,issue.issueDate,issue.dueDate from student inner join book inner join issue where book.bookID=issue.bookID and student.studentID=issue.studentID and issue.returnBook='YES'");
+            ResultSet rs1=st.executeQuery("select issue.student_id,students.name,issue.book_id,books.title,issue.issueDate,issue.dueDate from students inner join books inner join issue where books.book_id=issue.book_id and students.student_id=issue.student_id and issue.returnBook='YES'");
             jTable2.setModel(DbUtils.resultSetToTableModel(rs1));
         }
         catch(Exception e)
         {
-           JOptionPane.showMessageDialog(null,"Connection Error!");
+//           JOptionPane.showMessageDialog(null,"Connection Error!");
+            JOptionPane.showMessageDialog(this,e);  
+//above is for debugging
         }
     }//GEN-LAST:event_formComponentShown
-//select issue.studentID, student.name, book.name, issue.issueDate, issue.dueDate from student inner join issue where book.bookID=issue.bookID and student.studentID=issue.studentID and issue.returnBook='NO'
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
