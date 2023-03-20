@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class NewStudent extends javax.swing.JFrame {
+public class NewParent extends javax.swing.JFrame {
 
     /**
      * Creates new form newStudent
      */
-    public NewStudent() {
+    public NewParent() {
         initComponents();
     }
 
@@ -33,17 +33,17 @@ public class NewStudent extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 500));
@@ -51,20 +51,16 @@ public class NewStudent extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("Student ID");
+        jLabel1.setText("Parent ID");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 122, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 163, -1, -1));
+        jLabel2.setText("Phone Number");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Password");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setText("Year Group");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         jTextField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,18 +72,6 @@ public class NewStudent extends javax.swing.JFrame {
 
         jTextField2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 200, -1));
-
-        jTextField3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 200, -1));
-
-        jComboBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 200, -1));
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setText("Save");
@@ -107,19 +91,29 @@ public class NewStudent extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, -1, -1));
 
+        jTextField6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 200, -1));
+
         jTextField5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 200, -1));
-
-        jTextField4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 200, -1));
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Parent ID");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 204, -1, -1));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 200, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Username");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+
+        jTextField3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 200, -1));
+
+        jTextField4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 200, -1));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setText("Name");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 163, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setText("Email");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -127,10 +121,6 @@ public class NewStudent extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -140,35 +130,35 @@ public class NewStudent extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String student_id=jTextField1.getText();
+        String parent_id=jTextField1.getText();
         String name=jTextField2.getText();
-        String parent_id=jTextField3.getText();
-        String yearGroup=(String)jComboBox1.getSelectedItem();
-        String username=jTextField4.getText();
-        String password=jTextField5.getText();
-        String usertype="student";
+        String email=jTextField3.getText();
+        String phone_number=jTextField3.getText();
+        String username=jTextField5.getText();
+        String password=jTextField6.getText();
+        String usertype="parent";
         
         try
         {
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
-            st.executeUpdate("insert into students values('"+student_id+"','"+name+"','"+parent_id+"','"+yearGroup+"')");
-            st.executeUpdate("insert into users (student_id, username, password, usertype) values ('"+student_id+"','"+username+"','"+password+"','"+usertype+"')");
+            st.executeUpdate("insert into parents values('"+parent_id+"','"+name+"','"+email+"','"+phone_number+"')");
+            st.executeUpdate("insert into users (parent_id, username, password, usertype) values ('"+parent_id+"','"+username+"','"+password+"','"+usertype+"')");
             JOptionPane.showMessageDialog(this,"Successfully updated!");
             setVisible(false);
-            new NewStudent().setVisible(true);
-//insert into users (student_id, username, password, usertype)
-//values ('"+student_id+"','"+username+"','"+password+"','"+usertype+"');
+            new NewParent().setVisible(true);
+//insert into users (parent_id, username, password, usertype)
+//values ('"+parent_id+"','"+username+"','"+password+"','"+usertype+"');
         }
 
         catch(Exception e)
         {
             //            JOptionPane.showMessageDialog(this,e);
-            JOptionPane.showMessageDialog(null,"Invalid input, check Student ID or Parent ID");
+            JOptionPane.showMessageDialog(null,"Invalid input, check Parent ID");
 
             //above is for debugging
             setVisible(false);
-            new NewStudent().setVisible(true);
+            new NewParent().setVisible(true);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -176,7 +166,6 @@ public class NewStudent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -188,5 +177,6 @@ public class NewStudent extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

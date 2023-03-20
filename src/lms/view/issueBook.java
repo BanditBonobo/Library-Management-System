@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class issueBook extends javax.swing.JFrame {
+public class IssueBook extends javax.swing.JFrame {
 
     /**
      * Creates new form issueBook
      */
-    public issueBook() {
+    public IssueBook() {
         initComponents();
     }
 
@@ -40,140 +40,114 @@ public class issueBook extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        issueButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(325, 125));
+        setPreferredSize(new java.awt.Dimension(700, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Book ID");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 122, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Student ID");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 169, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Issue Date");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 222, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Due Date");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 277, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 119, 200, -1));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 166, 194, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 217, 195, -1));
+        jTextField2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 166, 200, -1));
+
+        jDateChooser1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 217, 200, -1));
+
+        jDateChooser2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 272, 201, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Issue");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        issueButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        issueButton.setText("Issue");
+        issueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                issueButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 328, -1, -1));
+        getContentPane().add(issueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 328, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Close");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                closeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 328, -1, -1));
+        getContentPane().add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 328, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        new Home().setVisible(true);
+    }//GEN-LAST:event_closeButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void issueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issueButtonActionPerformed
         // TODO add your handling code here:
-        SimpleDateFormat dFormat=new SimpleDateFormat("dd-MM-yyyy");
-        String book_id=jTextField1.getText();
-        String student_id=jTextField2.getText();
-        String issueDate=dFormat.format(jDateChooser1.getDate());
-        String dueDate=dFormat.format(jDateChooser2.getDate());
-        String returnBook="NO";
-        try
-        {
-            Connection con=ConnectionProvider.getCon();
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select *from books where book_id='"+book_id+"'");
-            if(rs.next())
-            {
-                ResultSet rsl=st.executeQuery("select *from students where student_id='"+student_id+"'");
-                if(rsl.next())
-                {
-                    st.executeUpdate("insert into issue values('"+book_id+"','"+student_id+"','"+issueDate+"','"+dueDate+"','"+returnBook+"')");
-                    JOptionPane.showMessageDialog(null,"Book successfully issued!");
-                    setVisible(false);
-                    new issueBook().setVisible(true);
-                }
-                else
-                    JOptionPane.showMessageDialog(null,"incorrect student ID");
-            }
-            
-            else
-                JOptionPane.showMessageDialog(null,"incorrect Book ID");
-        }
-        catch(Exception e)
-        {
-//            JOptionPane.showMessageDialog(null,"Connection Error!");
-            JOptionPane.showMessageDialog(this,e);  
-//above is for debugging
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String book_id = jTextField1.getText();
+        String student_id = jTextField2.getText();
+        String issueDate = dFormat.format(jDateChooser1.getDate());
+        String dueDate = dFormat.format(jDateChooser2.getDate());
+        String returnBook = "NO";
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select *from books where book_id='" + book_id + "'");
+            if (rs.next()) {
+                int numberOfCopies = rs.getInt("Number_of_Copies");
+                if (numberOfCopies == 0) {
+                    JOptionPane.showMessageDialog(null, "There are no copies available for this book!");
+                } else {
+                    ResultSet rsl = st.executeQuery("select *from students where student_id='" + student_id + "'");
+                    if (rsl.next()) {
+                        ResultSet rslt = st.executeQuery("select *from issue where book_id='" + book_id + "' and student_id='" + student_id + "' and returnBook='NO'");
+                        if (!rslt.next()) {
+                            st.executeUpdate("insert into issue (book_id, student_id, issueDate, dueDate, returnBook) values('" + book_id + "','" + student_id + "','" + issueDate + "','" + dueDate + "','" + returnBook + "')");
+                            st.executeUpdate("update books set issue_count = cast(issue_count as unsigned) + 1 where book_id='" + book_id + "'");
+                            st.executeUpdate("update books set Number_of_Copies = cast(Number_of_Copies as unsigned) - 1 where book_id='" + book_id + "'");
+                            JOptionPane.showMessageDialog(null, "Book successfully issued!");
+                            setVisible(false);
+                            new IssueBook().setVisible(true);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "This book is already issued to this student!");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Incorrect student ID");
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect Book ID");
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new issueBook().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_issueButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton issueButton;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;

@@ -17,20 +17,20 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    private String studentId = null;
+    private String parentId = null;
     
     /**
      * Creates new form login
      */
-    public login() {
+    public Login() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 // the above makes the login page fullscreen on launch
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,85 +42,90 @@ public class login extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtpass = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        loginButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
+        userTypeSelect = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtuser = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Username");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 84, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Select User Type");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        txtpass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 200, -1));
-
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
+        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
 
-        jButton2.setText("Close");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                closeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
+        getContentPane().add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "student", "parent" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        userTypeSelect.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        userTypeSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "student", "parent" }));
+        userTypeSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                userTypeSelectActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 200, -1));
+        getContentPane().add(userTypeSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 200, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Password");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 139, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
-        txtuser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 81, 200, -1));
+        txtuser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 200, -1));
+
+        jPasswordField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 200, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         try{
-            String query = "SELECT * FROM `users` WHERE username=? and password=? and usertype=?";
+            String query = "select * from `users` where username=? and password=? and usertype=?";
             con = ConnectionProvider.getCon();
             pst = con.prepareStatement(query);
             pst.setString(1, txtuser.getText());
-            pst.setString(2, txtpass.getText());
-            pst.setString(3, String.valueOf(jComboBox1.getSelectedItem()));
+            pst.setString(2, new String(jPasswordField1.getPassword()));
+            pst.setString(3, String.valueOf(userTypeSelect.getSelectedItem()));
             rs = pst.executeQuery();
             if(rs.next()){
+                this.studentId = rs.getString("student_id");
+                this.parentId = rs.getString("parent_id");
                 JOptionPane.showMessageDialog(this, "username and password matched and you are logged in as " + rs.getString("usertype"));
-                if(jComboBox1.getSelectedIndex()==0){
-                    home a = new home();
+                if(userTypeSelect.getSelectedIndex()==0){
+                    Home a = new Home();
                     a.setVisible(true);
                     this.setVisible(false);
                 }
-                else if(jComboBox1.getSelectedIndex()==1){
-                    studentHome s = new studentHome();
+                else if(userTypeSelect.getSelectedIndex()==1){
+                    StudentHome s = new StudentHome(this.studentId);
                     s.setVisible(true);
                     this.setVisible(false);
                 }
                 else{
-                    parentHome p = new parentHome();
+                    ParentHome p = new ParentHome(this.parentId);
                     p.setVisible(true);
                     this.setVisible(false);
                 }
@@ -128,27 +133,27 @@ public class login extends javax.swing.JFrame {
             else{
                 JOptionPane.showMessageDialog(this, "Incorrect Username or Password!");
             }
-                
+            
         }
         catch(Exception ex){
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 // the above is the action code for when the login button is pressed
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_closeButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void userTypeSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTypeSelectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_userTypeSelectActionPerformed
 // the above is the action code for when the close button is pressed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void startApplication() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -162,32 +167,33 @@ public class login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton closeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtpass;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton loginButton;
     private javax.swing.JTextField txtuser;
+    private javax.swing.JComboBox<String> userTypeSelect;
     // End of variables declaration//GEN-END:variables
 }

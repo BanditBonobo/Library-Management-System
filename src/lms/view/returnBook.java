@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class returnBook extends javax.swing.JFrame {
+public class ReturnBook extends javax.swing.JFrame {
 
     /**
      * Creates new form returnBook
      */
-    public returnBook() {
+    public ReturnBook() {
         initComponents();
     }
 
@@ -39,78 +39,79 @@ public class returnBook extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        searchDate = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
+        returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(325, 125));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Book ID");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 120, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Student ID");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 163, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Issue Date");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 209, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Due Date");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 259, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 120, 199, -1));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 163, 199, -1));
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 206, 199, -1));
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 256, 199, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchDate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        searchDate.setText("Search");
+        searchDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                searchDateActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 163, -1, -1));
+        getContentPane().add(searchDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 163, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Close");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                closeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
+        getContentPane().add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Return");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        returnButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        returnButton.setText("Return");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                returnButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 320, -1, -1));
+        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 320, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        new Home().setVisible(true);  
+    }//GEN-LAST:event_closeButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void searchDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDateActionPerformed
         // TODO add your handling code here:
         String book_id=jTextField1.getText();
         String student_id=jTextField2.getText();
@@ -118,11 +119,11 @@ public class returnBook extends javax.swing.JFrame {
         {
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select *from issue where book_id='"+book_id+"' and student_id='"+student_id+"'");
+            ResultSet rs=st.executeQuery("select *from issue where book_id='"+book_id+"' and student_id='"+student_id+"' and returnBook='NO'");
             if(rs.next())
             {
-                jTextField3.setText(rs.getString(3));
-                jTextField4.setText(rs.getString(4));
+                jTextField3.setText(rs.getString("issueDate"));
+                jTextField4.setText(rs.getString("dueDate"));
                 jTextField1.setEditable(false);
                 jTextField2.setEditable(false);
             }
@@ -130,73 +131,62 @@ public class returnBook extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "Book is not issued to this student.");
                 setVisible(false);
-                new returnBook().setVisible(true);
+                new ReturnBook().setVisible(true);
             }
         }
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(null, "Connection Error!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_searchDateActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
-        String book_id=jTextField1.getText();
-        String student_id=jTextField2.getText();
-        try
-        {
-            Connection con=ConnectionProvider.getCon();
-            Statement st=con.createStatement();
-            st.executeUpdate("update issue set returnBook='YES' where student_id='"+student_id+"' and book_id='"+book_id+"'");
-            JOptionPane.showMessageDialog(null, "Book successfully returned!");
-            setVisible(false);
-            new returnBook().setVisible(true);
-        }
-        catch(Exception e)
-        {
+//        String book_id=jTextField1.getText();
+//        String student_id=jTextField2.getText();
+//        try
+//        {
+//            Connection con=ConnectionProvider.getCon();
+//            Statement st=con.createStatement();
+//            st.executeUpdate("update issue set returnBook='YES' where student_id='"+student_id+"' and book_id='"+book_id+"'");
+//            JOptionPane.showMessageDialog(null, "Book successfully returned!");
+//            setVisible(false);
+//            new ReturnBook().setVisible(true);
+//        }
+//        catch(Exception e)
+//        {
+//            JOptionPane.showMessageDialog(null, "Connection Error!");
+//        }
+        String book_id = jTextField1.getText();
+        String student_id = jTextField2.getText();
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+
+            // Check if the returnBook is 'NO' and select the most recent record
+            ResultSet issueResult = st.executeQuery("select issue_id from issue where student_id='" + student_id + "' and book_id='" + book_id + "' and returnBook='NO'");
+            if (issueResult.next()) {
+                // Get the most recent issue ID
+                int issue_id = issueResult.getInt("issue_id");
+                // Update returnBook to 'YES'
+                st.executeUpdate("update issue set returnBook='YES' where issue_id='" + issue_id + "'");
+
+                // Increase the number_of_copies by 1
+                st.executeUpdate("update books set Number_of_Copies = cast(Number_of_Copies as unsigned) + 1 where book_id='" + book_id + "'");
+
+                JOptionPane.showMessageDialog(null, "Book successfully returned!");
+                setVisible(false);
+                new ReturnBook().setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "The book is either not issued to this student or already returned!");
+            }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Connection Error!");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new returnBook().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_returnButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton closeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -205,5 +195,7 @@ public class returnBook extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton returnButton;
+    private javax.swing.JButton searchDate;
     // End of variables declaration//GEN-END:variables
 }

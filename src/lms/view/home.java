@@ -8,14 +8,13 @@ package lms.view;
  *
  * @author User
  */
-public class home extends javax.swing.JFrame {
-
+public class Home extends javax.swing.JFrame {
+    
     /**
      * Creates new form home
      */
-    public home() {
+    public Home() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -27,147 +26,121 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        newUser = new javax.swing.JButton();
+        newBook = new javax.swing.JButton();
+        bookLog = new javax.swing.JButton();
+        issueBook = new javax.swing.JButton();
+        returnBook = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("New Student");
-        jButton1.setPreferredSize(new java.awt.Dimension(160, 60));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        newUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        newUser.setText("New User");
+        newUser.setPreferredSize(new java.awt.Dimension(160, 60));
+        newUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                newUserActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 15, -1, -1));
+        getContentPane().add(newUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 15, -1, -1));
 
-        jButton2.setText("New Book");
-        jButton2.setPreferredSize(new java.awt.Dimension(160, 60));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        newBook.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        newBook.setText("New Book");
+        newBook.setPreferredSize(new java.awt.Dimension(160, 60));
+        newBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                newBookActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        getContentPane().add(newBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        jButton7.setText("Statistics");
-        jButton7.setPreferredSize(new java.awt.Dimension(160, 60));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        bookLog.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bookLog.setText("Book Log");
+        bookLog.setPreferredSize(new java.awt.Dimension(160, 60));
+        bookLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                bookLogActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        getContentPane().add(bookLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        jButton8.setText("Issue Book");
-        jButton8.setPreferredSize(new java.awt.Dimension(160, 60));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        issueBook.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        issueBook.setText("Issue Book");
+        issueBook.setPreferredSize(new java.awt.Dimension(160, 60));
+        issueBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                issueBookActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+        getContentPane().add(issueBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
-        jButton9.setText("Return Book");
-        jButton9.setPreferredSize(new java.awt.Dimension(160, 60));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        returnBook.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        returnBook.setText("Return Book");
+        returnBook.setPreferredSize(new java.awt.Dimension(160, 60));
+        returnBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                returnBookActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
+        getContentPane().add(returnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
-        jButton10.setText("Log out");
-        jButton10.setPreferredSize(new java.awt.Dimension(160, 60));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        logout.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        logout.setText("Log out");
+        logout.setPreferredSize(new java.awt.Dimension(160, 60));
+        logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                logoutActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new login().setVisible(true);
-    }//GEN-LAST:event_jButton10ActionPerformed
+        new Login().setVisible(true);
+    }//GEN-LAST:event_logoutActionPerformed
 // above is for logout button
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void newUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserActionPerformed
         // TODO add your handling code here:
-        new newStudent().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        setVisible(false);
+        new NewUser().setVisible(true);
+    }//GEN-LAST:event_newUserActionPerformed
 // above is for new student button
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void newBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newBookActionPerformed
         // TODO add your handling code here:
-        new newBook().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        setVisible(false);
+        new NewBook().setVisible(true);
+    }//GEN-LAST:event_newBookActionPerformed
 // above is for new book button
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void issueBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issueBookActionPerformed
         // TODO add your handling code here:
-        new issueBook().setVisible(true);
-    }//GEN-LAST:event_jButton8ActionPerformed
+        setVisible(false);
+        new IssueBook().setVisible(true);
+    }//GEN-LAST:event_issueBookActionPerformed
 //above is for issue book button
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void returnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBookActionPerformed
         // TODO add your handling code here:
-        new returnBook().setVisible(true);
-    }//GEN-LAST:event_jButton9ActionPerformed
+        setVisible(false);
+        new ReturnBook().setVisible(true);
+    }//GEN-LAST:event_returnBookActionPerformed
 //above is for return book button
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void bookLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookLogActionPerformed
         // TODO add your handling code here:
-        new statistics().setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
+        setVisible(false);
+        new BookLog().setVisible(true);
+    }//GEN-LAST:event_bookLogActionPerformed
 //above is for statistics button
-
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new home().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton bookLog;
+    private javax.swing.JButton issueBook;
+    private javax.swing.JButton logout;
+    private javax.swing.JButton newBook;
+    private javax.swing.JButton newUser;
+    private javax.swing.JButton returnBook;
     // End of variables declaration//GEN-END:variables
 }

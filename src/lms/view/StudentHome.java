@@ -1,24 +1,22 @@
-package lms.view;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package lms.view;
 
 /**
  *
  * @author User
  */
-public class ParentHome extends javax.swing.JFrame {
-    private String parentId;
-    private String userType = "parent";
-    
+public class StudentHome extends javax.swing.JFrame {
+    private String studentId;
+    private String userType = "student";
     /**
-     * Creates new form parentHome
+     * Creates new form studentHome
      */
-    public ParentHome(String parentId) {
+    public StudentHome(String studentId) {
         initComponents();
-        this.parentId = parentId;
+        this.studentId = studentId;
     }
 
     /**
@@ -30,26 +28,25 @@ public class ParentHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        viewChildDetails = new javax.swing.JButton();
-        requestBook = new javax.swing.JButton();
-        logout = new javax.swing.JButton();
         browseLibrary = new javax.swing.JButton();
+        viewCurrentlyCheckedOut = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        viewChildDetails.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        viewChildDetails.setText("View child Details");
-        viewChildDetails.addActionListener(new java.awt.event.ActionListener() {
+        browseLibrary.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        browseLibrary.setText("Browse Library");
+        browseLibrary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewChildDetailsActionPerformed(evt);
+                browseLibraryActionPerformed(evt);
             }
         });
 
-        requestBook.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        requestBook.setText("Request Book");
-        requestBook.addActionListener(new java.awt.event.ActionListener() {
+        viewCurrentlyCheckedOut.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        viewCurrentlyCheckedOut.setText("View Current Checkouts");
+        viewCurrentlyCheckedOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestBookActionPerformed(evt);
+                viewCurrentlyCheckedOutActionPerformed(evt);
             }
         });
 
@@ -61,14 +58,6 @@ public class ParentHome extends javax.swing.JFrame {
             }
         });
 
-        browseLibrary.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        browseLibrary.setText("Browse Library");
-        browseLibrary.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                browseLibraryActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,39 +65,28 @@ public class ParentHome extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logout)
-                .addGap(35, 35, 35))
+                .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
+                .addGap(105, 105, 105)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(viewChildDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(requestBook)
-                        .addGap(12, 12, 12))
+                    .addComponent(viewCurrentlyCheckedOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(browseLibrary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(viewChildDetails)
+                .addGap(54, 54, 54)
+                .addComponent(browseLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(browseLibrary)
-                .addGap(18, 18, 18)
-                .addComponent(requestBook)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(viewCurrentlyCheckedOut, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(logout)
-                .addGap(22, 22, 22))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void requestBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBookActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        new RequestBook(this.parentId).setVisible(true);         
-    }//GEN-LAST:event_requestBookActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
@@ -116,22 +94,21 @@ public class ParentHome extends javax.swing.JFrame {
         new Login().setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
 
-    private void viewChildDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewChildDetailsActionPerformed
+    private void viewCurrentlyCheckedOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCurrentlyCheckedOutActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new ViewChildDetails(this.parentId).setVisible(true);        
-    }//GEN-LAST:event_viewChildDetailsActionPerformed
+        new ViewCurrentlyCheckedOut(this.studentId).setVisible(true);        
+    }//GEN-LAST:event_viewCurrentlyCheckedOutActionPerformed
 
     private void browseLibraryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseLibraryActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new BrowseLibrary(this.parentId,userType).setVisible(true);        
+        new BrowseLibrary(this.studentId,this.userType).setVisible(true);
     }//GEN-LAST:event_browseLibraryActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton browseLibrary;
     private javax.swing.JButton logout;
-    private javax.swing.JButton requestBook;
-    private javax.swing.JButton viewChildDetails;
+    private javax.swing.JButton viewCurrentlyCheckedOut;
     // End of variables declaration//GEN-END:variables
 }

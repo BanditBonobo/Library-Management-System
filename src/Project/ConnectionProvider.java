@@ -14,12 +14,12 @@ public class ConnectionProvider {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/lmsDatabases","root","");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/lmsdatabases","root","");
             return con;
         }
-        catch(Exception e)
+        catch(Exception ex)
         {
-            System.out.println(e);
+            System.out.println(ex);
             return null;
         }
     }

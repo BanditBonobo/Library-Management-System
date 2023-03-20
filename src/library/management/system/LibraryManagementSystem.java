@@ -4,6 +4,8 @@
  */
 package library.management.system;
 
+import lms.view.Login;
+
 /**
  *
  * @author User
@@ -15,6 +17,8 @@ public class LibraryManagementSystem {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Login loginFrame = new Login();
+        loginFrame.startApplication();
     }
     
 }

@@ -4,7 +4,24 @@ import java.sql.*;
 import Project.ConnectionProvider;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
-
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.AbstractCellEditor;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.table.TableCellEditor;
+import java.sql.SQLException;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,12 +31,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author User
  */
-public class statistics extends javax.swing.JFrame {
+public class BookLog extends javax.swing.JFrame {
 
     /**
      * Creates new form statistics
      */
-    public statistics() {
+    public BookLog() {
         initComponents();
     }
 
@@ -38,20 +55,21 @@ public class statistics extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
+        viewBookStatistics = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(325, 125));
+        setLocation(new java.awt.Point(0, 0));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Issue Details");
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -65,10 +83,10 @@ public class statistics extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Return Details");
 
-        jTable2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTable2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -80,13 +98,27 @@ public class statistics extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jTable2ComponentShown(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Close");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.setBackground(new java.awt.Color(0, 153, 153));
+        closeButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                closeButtonActionPerformed(evt);
+            }
+        });
+
+        viewBookStatistics.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        viewBookStatistics.setText("View Book Statistcs");
+        viewBookStatistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBookStatisticsActionPerformed(evt);
             }
         });
 
@@ -113,7 +145,9 @@ public class statistics extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(viewBookStatistics)
+                .addGap(44, 44, 44)
+                .addComponent(closeButton)
                 .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
@@ -128,7 +162,9 @@ public class statistics extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(closeButton)
+                    .addComponent(viewBookStatistics))
                 .addGap(32, 32, 32))
         );
 
@@ -141,9 +177,9 @@ public class statistics extends javax.swing.JFrame {
         {
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select issue.student_id,students.name,issue.book_id,books.title,issue.issueDate,issue.dueDate from students inner join books inner join issue where books.book_id=issue.book_id and students.student_id=issue.student_id and issue.returnBook='NO'");
+            ResultSet rs=st.executeQuery("select issue.student_id,students.name,students.parent_id,issue.book_id,books.title,issue.issueDate,issue.dueDate from students inner join books inner join issue where books.book_id=issue.book_id and students.student_id=issue.student_id and issue.returnBook='NO'");
             jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-            ResultSet rs1=st.executeQuery("select issue.student_id,students.name,issue.book_id,books.title,issue.issueDate,issue.dueDate from students inner join books inner join issue where books.book_id=issue.book_id and students.student_id=issue.student_id and issue.returnBook='YES'");
+            ResultSet rs1=st.executeQuery("select issue.student_id,students.name,students.parent_id,issue.book_id,books.title,issue.issueDate,issue.dueDate from students inner join books inner join issue where books.book_id=issue.book_id and students.student_id=issue.student_id and issue.returnBook='YES'");
             jTable2.setModel(DbUtils.resultSetToTableModel(rs1));
         }
         catch(Exception e)
@@ -153,53 +189,85 @@ public class statistics extends javax.swing.JFrame {
 //above is for debugging
         }
     }//GEN-LAST:event_formComponentShown
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new Home().setVisible(true);  
+    }//GEN-LAST:event_closeButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void jTable2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTable2ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2ComponentShown
+    private DefaultCategoryDataset createDataset() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+    
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(statistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(statistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(statistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(statistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+            con = ConnectionProvider.getCon();
+            String query = "SELECT title, issue_count FROM books";
+            pstmt = con.prepareStatement(query);
+            rs = pstmt.executeQuery();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new statistics().setVisible(true);
+            while (rs.next()) {
+                String title = rs.getString("title");
+                int count = rs.getInt("issue_count");
+                dataset.addValue(count, "Books", title);
             }
-        });
+        } 
+        catch (Exception e) {
+        e.printStackTrace();
+        } 
+        finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (con != null) con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    return dataset;
+}
+    private void displayBookStatsGraph() {
+        JFrame barGraphFrame = createBarGraphFrame();
+        barGraphFrame.setLocationRelativeTo(null); // Center the frame on the screen
+        barGraphFrame.setVisible(true);
+    }
+    private JFrame createBarGraphFrame() {
+        JFrame barGraphFrame = new JFrame("Books Frequently Checked Out");
+        barGraphFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        DefaultCategoryDataset dataset = createDataset();
+
+        JFreeChart barChart = ChartFactory.createBarChart("Books Frequently Checked Out","Book Name","Number of times checked out",dataset,PlotOrientation.VERTICAL,true, true, false);
+        ChartPanel chartPanel = new ChartPanel(barChart);
+        barGraphFrame.add(chartPanel, BorderLayout.CENTER);
+
+        JButton closeButton = new JButton("Close");
+        closeButton.addActionListener(e -> barGraphFrame.dispose());
+        barGraphFrame.add(closeButton, BorderLayout.SOUTH);
+
+        barGraphFrame.pack();
+        return barGraphFrame; 
+    }
+    
+    private void viewBookStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookStatisticsActionPerformed
+        // TODO add your handling code here:
+        displayBookStatsGraph();
+    }//GEN-LAST:event_viewBookStatisticsActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton closeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JButton viewBookStatistics;
     // End of variables declaration//GEN-END:variables
 }
